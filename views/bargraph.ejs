@@ -1,0 +1,67 @@
+<head>
+  <title>Bar Chart for the courses</title>
+  <style>
+    body {font-family: Lato;}
+
+  </style>
+</head>
+<body>
+  <%- include ("./partials/messages"); %>
+  <div class="container">
+    <div class="box-nav d-flex justify-between">
+        <a href="/dashboard" class="border-shadow">
+            <span class="text-gradient">BACK <i class="fas fa-user"></i></span>
+        </a>
+    </div>
+  <hr>
+  <canvas id="myChart"></canvas>
+  <!-- Start Js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+  <script>
+    let ctx = document.querySelector('#myChart').getContext('2d');
+    // ctx.canvas.parentNode.style.width = '65%'
+    let spring = ' <%= spring%>';  //Initialising ejs tags in javascript
+    let fall = '<%= fall%>';
+
+    let myChart = new Chart(ctx, {
+    
+      type: 'bar',
+      data: {
+        labels: ["FALL", "SPRING"],
+        datasets: [{
+          label: 'Semester',
+    
+          data :[fall,spring],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+           
+             ],
+          borderColor: [
+          'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+ 
+        ],
+          borderWidth: 1
+        }]
+     },
+     options: {
+         scales: {
+             yAxes: [{
+                 ticks: {
+                     beginAtZero:true
+                 }
+             }]
+         },
+         title: {
+            display: true,
+            text: 'Number of Applicants admitted in Spring/Fall',
+            fontSize: 22
+        }
+     }
+    }); // end chart obj
+
+
+  </script>
+</body>
+</html>

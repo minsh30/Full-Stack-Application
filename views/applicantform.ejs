@@ -1,0 +1,174 @@
+<div class="container">
+  <div class="box-nav d-flex justify-between">
+      <a href="/dashboard" class="border-shadow">
+          <span class="text-gradient">BACK <i class="fas fa-user"></i></span>
+      </a>
+  </div>
+<hr>
+<div class="row mt-5">
+  <div class="col-md-6 m-auto">
+    <div class="card card-body">
+      <h1 class="text-center mb-3"> 
+        <i class="fas fa-user-plus"></i>Applicant Form
+      </h1>
+      <%- include ("./partials/messages"); %>
+      <form action="/users/applicantform" method="POST">
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input
+            type="name"
+            id="lname"
+            name="lname"
+            class="form-control"
+            placeholder="Enter LastName"
+          />
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input
+            type="name"
+            id="fname"
+            name="fname"
+            class="form-control"
+            placeholder="Enter FirstName"
+          />
+        </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            class="form-control"
+            placeholder="Enter Email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="country">Country Citizenship</label>
+          <input class="form-control" type="text" name="country" value="" id="country">
+        </div>
+      <div class="form-group">
+        <label for="visa">Visa Status</label>
+        <input class="form-control" type="text" name="visa" value="" id="visa">
+      </div>
+        <div class="form-group">
+          <label for="undergraduate">Undergraduate Degree</label>
+          <input class="form-control" type="text" value="" name="undergraduate" id="undergraduate">
+        </div>
+       
+        <div class="form-group">
+          <label for="semester">Semester</label>
+          <input class="form-control" type="text" value="Spring/Fall" name="semester" id="semester">
+        </div>
+        <div class="form-group">
+          <label for="year">Year</label>
+          <input class="form-control" type="text"name="year" placeholder="2021" id="year">
+        </div>
+
+          <fieldset class="form-group">
+            <label for="example-date-input" >Gender:</label>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="gender" id="optionsRadios1" value="Female" checked>
+                Female
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="gender" id="optionsRadios2" value="Male" checked>
+                Male
+              </label>
+            </div>
+          </fieldset>
+          <fieldset class="form-group">
+            <label for="example-date-input" >Degree Concentration:</label>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="Degree_Con" id="Degree_Con0" value="General" checked>
+                General
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="Degree_Con" id="Degree_Con1" value="Web and Databases" checked>
+                Web and Databases
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="Degree_Con" id="Degree_Con2" value="Artificial Intelligence" checked>
+                Artificial Intelligence
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="Degree_Con" id="Degree_Con3" value="Cyber Security" checked>
+                Cyber Security
+              </label>
+            </div>
+          </fieldset>
+            <div class="form-group">
+              <label for="gpa">GPA</label>
+                <input class="form-control" type="number" value="4" name="gpa" id="gpa">
+              </div>
+              
+        <!-- <div class="custom-file mb-3">
+        
+          <input type="file" name="fileupload" id="fileupload" class="custom-file-input">
+          
+          <label for="fileupload" class="custom-file-label">Upload Transcription in pdf or docx form</label>
+        </div> -->
+
+
+        <fieldset class="form-group">
+          <label for="example-date-input" >Status</label>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="status" id="Status1" value="Admit Full" checked>
+              Admit Full
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="status" id="Status2" value="Admit Conditional" checked>
+              Admit Conditional
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="status" id="Status3" value="Admit Provisional" checked>
+              Admit Provisional
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="status" id="Status4" value="Admit Defer" checked>
+              Admit Defer
+            </label>
+          </div>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="radio" class="form-check-input" name="status" id="Status5" value="Reject" checked>
+              Reject
+            </label>
+          </div>
+        </fieldset> 
+        <div class="form-group">
+          <label for="defyear">If choose defer,which semester applicant is deferred to:</label>
+          <input class="form-control" type="text" placeholder="semester" name="defsem" id="defyear">
+          <label for="defyear">Deferred year:</label>
+          <input class="form-control" type="number" placeholder="2021"  name="defyear" id="defyear">
+        </div>
+        <div class="form-group">
+          <label for="notes">Notes(Optional)</label>
+          <textarea class="form-control rounded-0" id="notes" name="notes" rows="3"></textarea>
+         </div>
+        <input type="submit" value="Submit" class="btn btn-primary btn-block">
+      </form>
+      
+    </div>
+  </div>
+</div>
+<hr>
+
+<a href="/users/logout" class="btn btn-secondary">Logout</a>

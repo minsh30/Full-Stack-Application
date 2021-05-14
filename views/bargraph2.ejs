@@ -1,0 +1,213 @@
+<head>
+    <title>Bar Chart for the year</title>
+    <style>
+      body {font-family: Lato;}
+  
+    </style>
+  </head>
+  <body>
+    <%- include ("./partials/messages"); %>
+    <div class="container">
+      <div class="box-nav d-flex justify-between">
+          <a href="/dashboard" class="border-shadow">
+              <span class="text-gradient">BACK <i class="fas fa-user"></i></span>
+          </a>
+          &emsp;  &emsp;
+            <a href="/bargraph2" class="border-shadow">
+                <span class="text-gradient">REFRESH <i class="fas fa-user"></i></span>
+            </a>
+      </div>
+      <h4>Put Range in text filed below to see the Graph</h4>
+    <hr>
+    <canvas id="myChart"></canvas>
+    <!-- Start Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script>
+      function myfunction(start,end){
+        var array =  [2017,2018,2019,2020,2021,2022];
+       // const flag = array.filter(arr=>(arr >= start && arr <= end));
+
+      let ctx = document.querySelector('#myChart').getContext('2d');
+      // ctx.canvas.parentNode.style.width = '65%'
+    
+
+
+  if(start==2018 && end==2021)
+        {
+
+      var labels1 =  ["2018","2019","2020","2021"];
+     var data1 = ['<%= year1%>','<%= year2%>','<%= year3%>','<%= year4%>'];
+     var data2 = ['<%= Year1%>','<%= Year2%>','<%= Year3%>','<%= Year4%>'];
+        }
+
+        if(start==2018 && end==2022)
+        {
+
+      var labels1 =  ["2018","2019","2020","2021","Above 2021"];
+     var data1 = ['<%= year1%>','<%= year2%>','<%= year3%>','<%= year4%>','<%= greater%>'];
+     var data2 = ['<%= Year1%>','<%= Year2%>','<%= Year3%>','<%= Year4%>','<%= Greater%>'];
+        }
+        else if(start==2018 && end==2020)
+        {
+
+      var labels1 =  ["2018","2019","2020"];
+     var data1 = ['<%= year1%>','<%= year2%>','<%= year3%>'];
+     var data2 = ['<%= Year1%>','<%= Year2%>','<%= Year3%>'];
+        }
+        else if(start==2018 && end==2019)
+        {
+
+      var labels1 =  ["2018","2019"];
+     var data1 = ['<%= year1%>','<%= year2%>'];
+     var data2 = ['<%= Year1%>','<%= Year2%>'];
+        }
+        else if(start==2017 && end==2018)
+        {
+
+      var labels1 =  ["Below 2018","2018"];
+     var data1 = ['<%= lesser%>','<%= year1%>'];
+     var data2 = ['<%= Lesser%>','<%= Year1%>'];
+        }
+        else if(start==2017 && end==2019)
+        {
+
+      var labels1 =  ["Below 2018","2018","2019"];
+     var data1 = ['<%= lesser%>','<%= year1%>','<%= year2%>'];
+     var data2 = ['<%= Lesser%>','<%= Year1%>','<%= Year2%>'];
+        }
+
+        else if(start==2017 && end==2020)
+        {
+
+      var labels1 =  ["Below 2018","2018","2019","2020"];
+     var data1 = ['<%= lesser%>','<%= year1%>','<%= year2%>','<%= year3%>'];
+     var data2 = ['<%= Lesser%>','<%= Year1%>','<%= Year2%>','<%= Year3%>'];
+        }
+
+        else if(start==2017 && end==2021)
+        {
+
+      var labels1 =  ["Below 2018","2018","2019","2020","2021"];
+     var data1 = ['<%= lesser%>','<%= year1%>','<%= year2%>','<%= year3%>','<%= year4%>'];
+     var data2 = ['<%= Lesser%>','<%= Year1%>','<%= Year2%>','<%= Year3%>','<%= Year4%>'];
+        }
+        
+
+        else   if(start==2019 && end==2020)
+        {
+
+      var labels1 =  ["2019","2020"];
+     var data1 = ['<%= year2%>','<%= year3%>'];
+     var data2 = ['<%= Year2%>','<%= Year3%>'];
+        }
+
+        else if(start==2019 && end==2021)
+        {
+
+      var labels1 =  ["2019","2020","2021"];
+     var data1 = ['<%= year2%>','<%= year3%>','<%= year4%>'];
+     var data2 = ['<%= Year2%>','<%= Year3%>','<%= Year4%>'];
+        }
+        else   if(start==2019 && end==2022)
+        {
+
+      var labels1 =  ["2019","2020","2021","Above 2021"];
+     var data1 = ['<%= year2%>','<%= year3%>','<%= year4%>','<%= greater%>'];
+     var data2 = ['<%= Year2%>','<%= Year3%>','<%= Year4%>','<%= Greater%>'];
+        }
+        else   if(start==2020 && end==2021)
+        {
+
+      var labels1 =  ["2020","2021"];
+     var data1 = ['<%= year3%>','<%= year4%>'];
+     var data2 = ['<%= Year3%>','<%= Year4%>'];
+        }
+        else   if(start==2020 && end==2022)
+        {
+
+      var labels1 =  ["2020","2021","Above 2021"];
+     var data1 = ['<%= year3%>','<%= year4%>','<%= greater%>'];
+     var data2 = ['<%= Year3%>','<%= Year4%>','<%= Greater%>'];
+        }
+        else   if(start==2021 && end==2022)
+        {
+
+      var labels1 =  ["2021","Above 2021"];
+     var data1 = ['<%= year4%>','<%= greater%>'];
+     var data2 = ['<%= Year4%>','<%= Greater%>'];
+        }
+        
+        else if(start==2017 && end==2022)
+        {
+
+      var labels1 =  ["Below 2018","2018","2019","2020","2021","Above 2021"];
+     var data1 = ['<%= lesser%>','<%= year1%>','<%= year2%>','<%= year3%>','<%= year4%>','<%= greater%>'];
+     var data2 = ['<%= Lesser%>','<%= Year1%>','<%= Year2%>','<%= Year3%>','<%= Year4%>','<%= Greater%>'];
+        }
+       let spring = ' <%= spring%>';  //Initialising ejs tags in javascript
+    let fall = '<%= fall%>';
+  
+      let myChart = new Chart(ctx, {
+      
+        type: 'bar',
+        data: {
+          labels: labels1,
+          datasets: [
+            {
+      label: "Fall",
+      backgroundColor: "pink",
+      borderColor: "red",
+      borderWidth: 1,
+      data : data1
+    },
+    {
+      label: "Spring",
+      backgroundColor: "lightblue",
+      borderColor: "blue",
+      borderWidth: 1,
+      data : data2
+    }
+        
+          ]
+       },
+       options: {
+           scales: {
+               yAxes: [{
+                   ticks: {
+                       beginAtZero:true
+                   }
+               }]
+           },
+           title: {
+              display: true,
+              text: 'Number of Applicants admitted yearly on the basis of semester',
+              fontSize: 22
+          }
+       }
+      }); // end chart obj
+    }
+  
+    </script>
+
+<!--Trying to add range filter in the graph for limiting x axis-->
+<form action="#", method="GET">
+  <hr>
+ 
+  <div class="form-row align-items-center">
+    <div class="col-sm-3 my-1">
+      
+      <input type="text" class="form-control" id="inlineFormInputName" placeholder="From Year">
+    </div>
+    ---
+    <div class="col-sm-3 my-1">
+      <div class="input-group">
+        <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="To Year">
+      </div>
+    </div>
+    <div class="col-auto my-1">
+      <button type="submit" class="btn btn-primary" onclick="myfunction(document.getElementById('inlineFormInputName').value,document.getElementById('inlineFormInputGroupUsername').value)">Search</button>
+    </div>
+  </div>
+</form>
+  </body>
+  </html>

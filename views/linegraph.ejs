@@ -1,0 +1,67 @@
+<head>
+    <title>Line graph visualisation</title>
+    <style>
+      body {font-family: Lato;}
+  
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="box-nav d-flex justify-between">
+          <a href="/dashboard" class="border-shadow">
+              <span class="text-gradient">BACK <i class="fas fa-user"></i></span>
+          </a>
+      </div>
+    <hr>
+    <canvas id="myChart"></canvas>
+    <!-- Start Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script>
+      let ctx = document.querySelector('#myChart').getContext('2d');
+    //   ctx.canvas.parentNode.style.width = '50%'
+      let admitF = ' <%= admitF%>';  //Initialising ejs tags in javascript
+      let admitC = '<%= admitC%>';
+      let admitP = '<%= admitP%>';
+      let defer = '<%= defer%>';
+      let reject = '<%= reject%>';
+      let myChart = new Chart(ctx, {
+      
+        type: 'line',
+        data: {
+          labels: ["Admit Full", "Admit Conditional","Admit Provisional", "Admit Defer", "Reject"],
+          datasets: [{
+            label: 'Status',
+     
+            data :[admitF,admitC,admitP,defer,reject],
+            backgroundColor: [
+              'rgba(255, 7, 0, 0.7)'
+               ],
+            borderColor: [
+   
+              'rgba(255, 7, 0, 0.7)'
+          ],
+          fill:false,
+            borderWidth: 1
+          }]
+       },
+       options: {
+           scales: {
+               yAxes: [{
+                   ticks: {
+                       beginAtZero:true
+                   }
+               }]
+           },
+           title: {
+              display: true,
+              text: 'Application Status of Applicants',
+              fontSize: 22
+          }
+       }
+      }); // end chart obj
+  
+  
+    </script>
+  </body>
+  </html>

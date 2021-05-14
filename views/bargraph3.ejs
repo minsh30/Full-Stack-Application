@@ -1,0 +1,124 @@
+<head>
+    <title>Bar Chart for the year</title>
+    <style>
+      body {font-family: Lato;}
+  
+    </style>
+  </head>
+  <body>
+    <%- include ("./partials/messages"); %>
+    <div class="container">
+      <div class="box-nav d-flex justify-between">
+          <a href="/dashboard" class="border-shadow">
+              <span class="text-gradient">BACK <i class="fas fa-user"></i></span>
+          </a>
+      </div>
+    <hr>
+    <canvas id="myChart"></canvas>
+    <!-- Start Js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script>
+      let ctx = document.querySelector('#myChart').getContext('2d');
+      // ctx.canvas.parentNode.style.width = '65%'
+      let greater = ' <%= greater%>';  //Initialising ejs tags in javascript
+      let lesser = '<%= lesser%>';
+      let year1 = '<%= year1%>';
+      let year2 = '<%= year2%>';
+      let year3 = '<%= year3%>';
+      let year4 = '<%= year4%>';
+
+      let Greater = ' <%= Greater%>';  //Initialising ejs tags in javascript
+      let Lesser = '<%= Lesser%>';
+      let Year1 = '<%= Year1%>';
+      let Year2 = '<%= Year2%>';
+      let Year3 = '<%= Year3%>';
+      let Year4 = '<%= Year4%>';
+
+
+      let Greater1 = ' <%= Greater1%>';  //Initialising ejs tags in javascript
+      let Lesser1 = '<%= Lesser1%>';
+      let Year1p = '<%= Year1p%>';
+      let Year2p = '<%= Year2p%>';
+      let Year3p = '<%= Year3p%>';
+      let Year4p = '<%= Year4p%>';
+
+
+      let Greater2 = ' <%= Greater2%>';  //Initialising ejs tags in javascript
+      let Lesser2 = '<%= Lesser2%>';
+      let Year1d = '<%= Year1d%>';
+      let Year2d = '<%= Year2d%>';
+      let Year3d = '<%= Year3d%>';
+      let Year4d = '<%= Year4d%>';
+      
+
+      let Greater3 = ' <%= Greater3%>';  //Initialising ejs tags in javascript
+      let Lesser3 = '<%= Lesser3%>';
+      let Year1r = '<%= Year1r%>';
+      let Year2r = '<%= Year2r%>';
+      let Year3r = '<%= Year3r%>';
+      let Year4r = '<%= Year4r%>';
+      let myChart = new Chart(ctx, {
+      
+        type: 'bar',
+        data: {
+          labels: ["Below 2018","2018","2019","2020","2021","Above 2021"],
+          datasets: [
+          {
+      label: "Admit Full",
+      backgroundColor: "pink",
+      borderColor: "red",
+      borderWidth: 1,
+      data :[lesser,year1,year2,year3,year4,greater]
+    },
+    {
+      label: "Admit Conditional",
+      backgroundColor: "lightblue",
+      borderColor: "blue",
+      borderWidth: 1,
+      data :[Lesser,Year1,Year2,Year3,Year4,Greater]
+    },
+    {
+      label: "Admit Provisional",
+      backgroundColor: "lightgreen",
+      borderColor: "green",
+      borderWidth: 1,
+      data :[Lesser1,Year1p,Year2p,Year3p,Year4p,Greater1]
+    },
+    {
+      label: "Admit Defer",
+      backgroundColor: "yellow",
+      borderColor: "orange",
+      borderWidth: 1,
+      data :[Lesser2,Year1d,Year2d,Year3d,Year4d,Greater2]
+    },
+    {
+      label: "Reject",
+      backgroundColor: "Red",
+      borderColor: "orange",
+      borderWidth: 1,
+      data :[Lesser3,Year1r,Year2r,Year3r,Year4r,Greater3]
+    }
+              
+        
+          ]
+       },
+       options: {
+           scales: {
+               yAxes: [{
+                   ticks: {
+                       beginAtZero:true
+                   }
+               }]
+           },
+           title: {
+              display: true,
+              text: 'Applicants Status yearly',
+              fontSize: 22
+          }
+       }
+      }); // end chart obj
+  
+  
+    </script>
+  </body>
+  </html>
